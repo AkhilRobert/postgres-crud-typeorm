@@ -5,21 +5,17 @@ import morgan from 'morgan';
 
 import { TodoRoute } from './routes/TodoRoute';
 
-
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-
 app.use(morgan('dev'));
 app.use(json());
-
 
 app.use('/api', TodoRoute);
 
 app.all('*', (_, res) => {
     res.status(404).json({ message: 'Not found' });
 });
-
 
 (async () => {
 

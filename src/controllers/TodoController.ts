@@ -8,7 +8,6 @@ export const getAllTodos = async (req: Request, res: Response) => {
     res.status(200).json({ message: 'Success', todos });
 };
 
-
 export const createTodo = async (req: Request, res: Response) => {
     const { title } = req.body;
 
@@ -20,7 +19,6 @@ export const createTodo = async (req: Request, res: Response) => {
     return res.status(201).json({ message: todo });
 };
 
-
 export const deleteTodo = async (req: Request, res: Response) => {
     const id = req.params.id;
     const todo = await Todo.findOne({ id: parseInt(id) });
@@ -31,7 +29,6 @@ export const deleteTodo = async (req: Request, res: Response) => {
 
     return res.status(404).json({ message: 'todo not found' });
 };
-
 
 export const updateTodo = async (req: Request, res: Response) => {
     const id = req.params.id;
@@ -51,7 +48,6 @@ export const updateTodo = async (req: Request, res: Response) => {
     return res.status(200).json({ message: 'success', todo });
 };
 
-
 export const getTodoByID = async (req: Request, res: Response) => {
     const id = req.params.id;
 
@@ -60,7 +56,6 @@ export const getTodoByID = async (req: Request, res: Response) => {
     if (!todo) {
         return res.status(404).json({ message: 'todo not found' });
     }
-
 
     return res.json({ message: 'Success', todo });
 };
